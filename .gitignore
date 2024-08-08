@@ -1,3 +1,7 @@
 jwtsecret
-geth
-iliad
+geth/geth
+geth/data
+geth/config
+iliad/iliad
+iliad/data
+iliad/config
