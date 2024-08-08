@@ -2,13 +2,12 @@ services:
   story-testnet-geth:
     image: story-testnet-geth:v0.1.5
     build:
-      context: ./geth
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile.geth
     restart: unless-stopped
     container_name: story-testnet-geth
     volumes:
       - './geth/:/story-node/geth/'
-      - './geth/start_node.sh:/story-node/start_node.sh'
       - './jwtsecret:/story-node/geth/data/geth/jwtsecret'
     expose:
       - 8551
@@ -24,13 +23,12 @@ services:
   story-testnet-iliad:
     image: story-testnet-iliad:v0.1.5
     build:
-      context: ./iliad
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile.iliad
     restart: unless-stopped
     container_name: story-testnet-iliad
     volumes:
       - './iliad:/story-node/iliad/'
-      - './iliad/start_node.sh:/story-node/start_node.sh'
       - './jwtsecret:/story-node/geth/data/geth/jwtsecret'
     expose:
       - 8551
