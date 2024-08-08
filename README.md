@@ -15,7 +15,7 @@ cp config/geth/geth.toml geth/config
 cp config/iliad/*.toml iliad/config
 ```
 
-## Start the node
+# Start the node
 Just run `docker-compose up -d` to start the containers on detached mode.
 
 ## See logs
