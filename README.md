@@ -9,7 +9,7 @@ You can use  a utility like OpenSSL to create the token via command: `openssl ra
 To make things easy you can run `wget -O - ${S3_CLIENT_ARCHIVE_URL} | tar --warning=no-unknown-keyword -xzvf - --strip-components=1` replacing `${S3_CLIENT_ARCHIVE_URL}` with the S3 bucket link of the `geth/iliad` version you need, each version is listed [here](https://storyprotocol.notion.site/Story-Partner-Testnet-Guide-06ac4cb0f1be4464a32a3d20d95a4a41).
 
 ## Edit and copy config files
-Inside `config` folder there are config files for `geth` and `iliad` binaries, separated by folders. Just check and edit them as needed. Most people just change `moniker` name, `pruning` options and `external_address` config. Once you edit the config files as you needed, replace default config files for `geth` and `iliad` folders, you can use the following commands:
+Inside `config` folder there are config files for `geth` and `iliad` binaries, separated by folders. Just check and edit them as needed. Most people just change `moniker` name, `pruning` options and `external_address` config. Once you edit the config files as you needed, replace default config files for `geth` and `iliad` folders. You can use the following commands:
 ```
 cp config/geth/geth.toml geth/config
 cp config/iliad/*.toml iliad/config
