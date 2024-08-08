@@ -21,8 +21,8 @@ WORKDIR /story-node
 RUN wget -O - ${STORY_BINARY_S3} | tar --warning=no-unknown-keyword -xzvf - --strip-components=1 -C /story-node
 
 # Copying config files
-COPY iliad/config.toml /story-node/iliad/config/config.toml
-COPY iliad/iliad.toml /story-node/iliad/config/iliad.toml
+COPY config.toml /story-node/iliad/config/config.toml
+COPY iliad.toml /story-node/iliad/config/iliad.toml
 
 # Copying entrypoint
 COPY start_node.sh /story-node/start_node.sh
