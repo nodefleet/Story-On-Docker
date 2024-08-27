@@ -16,7 +16,7 @@ ENV HOME="/story-node"
 WORKDIR /story-node
 
 # Copying entrypoint
-COPY config/iliad/start_node.sh /story-node/start_node.sh
+COPY config/story/start_node.sh /story-node/start_node.sh
 RUN chmod +x start_node.sh
 
 EXPOSE 26660

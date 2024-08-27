@@ -8,7 +8,7 @@
 
 # The version of the CometBFT binary that created or
 # last modified the config file. Do not modify this.
-version = "0.38.7"
+version = "0.38.9"
 
 #######################################################################
 ###                   Main Base Config Options                      ###
@@ -168,6 +168,11 @@ experimental_close_on_slow_client = false
 # See https://github.com/tendermint/tendermint/issues/3435
 timeout_broadcast_tx_commit = "10s"
 
+# Maximum number of requests that can be sent in a batch
+# If the value is set to '0' (zero-value), then no maximum batch size will be
+# enforced for a JSON-RPC batch request.
+max_request_batch_size = 10
+
 # Maximum size of request body, in bytes
 max_body_bytes = 1000000
 
@@ -203,10 +208,10 @@ laddr = "tcp://0.0.0.0:26656"
 # Address to advertise to peers for them to dial. If empty, will use the same
 # port as the laddr, and will introspect on the listener to figure out the
 # address. IP and port are required. Example: 159.89.10.97:26656
-external_address = "{put_your_public_ip_here}:26656" # This should be a reachable address from outside your container.
+external_address = ""
 
 # Comma separated list of seed nodes to connect to
-seeds = "045dc9411e8c366ffd04e9a706666d6d220a87aa@44.214.162.88:26656,16fdd00a4b6857ab15f1754375a0966cf1d76eec@50.18.191.26:26656"
+seeds = "5a0191a6bd8f17c9d2fa52386ff409f5d796d112@b1.testnet.storyrpc.io:26656,0e2f0d4b5204e5e92a994a1eaa745b9ccb1d747b@b2.testnet.storyrpc.io:26656"
 
 # Comma separated list of nodes to keep persistent connections to
 persistent_peers = ""
@@ -282,6 +287,17 @@ type = "flood"
 # mempool may become invalid. If this does not apply to your application,
 # you can disable rechecking.
 recheck = true
+
+# recheck_timeout is the time the application has during the rechecking process
+# to return CheckTx responses, once all requests have been sent. Responses that 
+# arrive after the timeout expires are discarded. It only applies to 
+# non-local ABCI clients and when recheck is enabled.
+#
+# The ideal value will strongly depend on the application. It could roughly be estimated as the
+# average size of the mempool multiplied by the average time it takes the application to validate one
+# transaction. We consider that the ABCI application runs in the same location as the CometBFT binary
+# so that the recheck duration is not affected by network delays when making requests and receiving responses.
+recheck_timeout = "1s"
 
 # Broadcast (default: true) defines whether the mempool should relay
 # transactions to other peers. Setting this to false will stop the mempool
@@ -467,7 +483,7 @@ psql-conn = ""
 # When true, Prometheus metrics are served under /metrics on
 # PrometheusListenAddr.
 # Check out the documentation for the list of available metrics.
-prometheus = true
+prometheus = false
 
 # Address to listen for Prometheus collector(s) connections
 prometheus_listen_addr = ":26660"
@@ -479,4 +495,4 @@ prometheus_listen_addr = ":26660"
 max_open_connections = 3
 
 # Instrumentation namespace
-namespace = "cometbft."
+namespace = "cometbft"
