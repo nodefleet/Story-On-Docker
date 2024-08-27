@@ -16,7 +16,7 @@ network = "iliad"
 engine-endpoint = "http://story-testnet-geth:8551"
 
 # Story execution client JWT file used for authentication.
-engine-jwt-file = "/story-node/geth/iliad/geth/jwtsecret"
+engine-jwt-file = "/story-node/.story/geth/iliad/geth/jwtsecret"
 
 # SnapshotInterval specifies the height interval at which story
 # will take state sync snapshots. Defaults to 1000 (roughly once an hour), setting this to
