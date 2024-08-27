@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Initializing Story's beacon node"
-/story-node/story/story init --network iliad --home /story-node/story/
+/story-node/story/story init --network iliad --home /story-node/story/ --force
 
 
 echo "Starting Story's beacon node"
