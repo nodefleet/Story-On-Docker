@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     container_name: story-testnet-beacon
     volumes:
-      - './story:/story-node/story/story'
+      - './story:/story-node/story'
       - './jwtsecret:/story-node/geth/iliad/geth/jwtsecret'
     expose:
       - 8551
