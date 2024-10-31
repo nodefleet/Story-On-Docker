@@ -1,6 +1,6 @@
 services:
   story-testnet-geth:
-    image: story-testnet-geth:v0.9.2
+    image: story-testnet-geth:v0.12.0
     build:
       context: .
       dockerfile: Dockerfile.geth
@@ -21,7 +21,7 @@ services:
         max-size: 10m
         max-file: "3"
   story-testnet-beacon:
-    image: story-testnet-beacon:v0.9.11
+    image: story-testnet-beacon:v0.10.0
     build:
       context: .
       dockerfile: Dockerfile.story
